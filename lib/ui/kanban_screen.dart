@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kanban/providers/kanban_provides.dart';
-import 'package:kanban/ui/widgets/top_container.dart';
+import 'package:kanban/ui/kanban/kanban_board.dart';
+import 'package:kanban/ui/top_container/top_container.dart';
 import 'package:provider/provider.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -10,16 +11,10 @@ class KanbanScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          final provider = context.read<KanbanProvides>();
-          provider.addValue();
-        },
-        child: Icon(LucideIcons.plus),
-      ),
       body: SafeArea(
         child: Padding(padding: EdgeInsets.all(25),
         child: Column(
+          crossAxisAlignment: .stretch, //가로로 쭉 늘리기 <- 1
           spacing: 25, // 최신 플러터에서의 spacing 사용법
           children: [
             // Top container
@@ -27,10 +22,10 @@ class KanbanScreen extends StatelessWidget {
             
             // Kanban board
             Expanded(
-              child: Placeholder())
+              child: KanbanBoard(),
+            )
           ],
-        )
-        
+        ),
         ),
       )
        

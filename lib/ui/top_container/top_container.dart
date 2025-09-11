@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kanban/ui/widgets/done_progress_indicator.dart';
+import 'package:kanban/ui/top_container/done_progress_indicator.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class TopContainer extends StatelessWidget {
@@ -19,8 +19,8 @@ class TopContainer extends StatelessWidget {
               fontSize: 20,
               ),
             ),
-          ),
-          DoneProgressIndicator() //여백을 주기 위한 방법으로 Text를 Expanded로 감싸기 Expanded는 남은 공간을 다 차지함
+          ),//여백을 주기 위한 방법으로 Text를 Expanded로 감싸기 Expanded는 남은 공간을 다 차지함
+          DoneProgressIndicator() 
         ],
       ),
     );
