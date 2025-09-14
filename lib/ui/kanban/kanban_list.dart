@@ -10,4 +10,5 @@ class KanbanList extends StatelessWidget {
     return Center(
         child: Text(status.label,style: TextStyle(fontSize: 40),),
       );
+  }
 }
