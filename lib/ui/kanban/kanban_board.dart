@@ -10,21 +10,27 @@ class KanbanBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<KanbanProvides>(
-      builder: (context,provider, child){
-        final status = provider.kanbanStatus;
 
-        return ShadTabs(
-  value: status,
-  tabs: KanbanStatus.values
-      .map((e) => ShadTab(
-            value: e,
-            content: KanbanList(status: e),
-            child: Text(e.label), // label이 없으면 e.toString() 사용
-          ))
-      .toList(),
-);
-      }
-    );
-  }
+  
+     
+      return Consumer<KanbanProvides>(
+        builder: (context,provider, child){
+          final status = provider.kanbanStatus;
+          return ShadTabs(
+            expandContent: true,
+            contentConstraints: BoxConstraints.expand(height: 0),
+            value: status,
+            tabs: KanbanStatus.values.map(
+              (e) => ShadTab(
+              value: e, 
+              content: KanbanList(status: e),
+              child: Text(e.label), // label이 없으면 e.toString() 사용f
+            )).toList(),
+          );
+        }
+      );
+    }
+    
 }
+
+
