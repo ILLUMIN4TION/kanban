@@ -21,6 +21,7 @@ extension KanbanStatusExtension on KanbanStatus { //칸반 항목 각각의 titl
         KanbanStatus.todo => const Color(0xFFF8F8F8), 
         KanbanStatus.progress => const Color(0xFFEBF7FC), 
         KanbanStatus.done => const Color(0xFFEDF9E8),
+        
       };
 
       Color get bubbleColor => switch (this) {
@@ -32,6 +33,12 @@ extension KanbanStatusExtension on KanbanStatus { //칸반 항목 각각의 titl
       IconData get icon => switch (this) {
         KanbanStatus.todo => LucideIcons.circlePause,
         KanbanStatus.progress => LucideIcons.circlePlay,
+        KanbanStatus.done => LucideIcons.circleCheck,
+      };
+
+      IconData get nextIcon => switch (this) {
+        KanbanStatus.todo => LucideIcons.circlePlay,
+        KanbanStatus.progress => LucideIcons.circlePause,
         KanbanStatus.done => LucideIcons.circleCheck,
       };
 }

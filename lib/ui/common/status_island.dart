@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kanban/enums/kanban_status.dart';
+import 'package:kanban/providers/kanban_provides.dart';
 import 'package:kanban/ui/themes/app_size.dart';
+import 'package:provider/provider.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class StatusIsland extends StatelessWidget {
@@ -52,7 +54,7 @@ class StatusIsland extends StatelessWidget {
           ),
           _buldCircleBubble(
             onTap: () {
-              
+              context.read<KanbanProvides>().addItem('New Task',status);
               debugPrint('$status 추가하기');
             },
             visible: status != KanbanStatus.done, // done 상태에서는 숨기기
