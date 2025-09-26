@@ -13,7 +13,7 @@ class KanbanBoard extends StatelessWidget {
 
   
      
-      return Consumer<KanbanProvides>(
+      return Consumer<KanbanProviders>(
         builder: (context,provider, child){
           final status = provider.kanbanStatus;
           return ShadTabs(

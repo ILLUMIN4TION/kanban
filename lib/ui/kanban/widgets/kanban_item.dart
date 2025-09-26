@@ -18,7 +18,7 @@ class KanbanItem extends StatelessWidget {
     return ShadCard( //leading, title, subtitle, trailing 등 다양한 매개변수 제공  
       title: Row(
         children:[ 
-          Checkbox(visualDensity: VisualDensity.compact,
+          Checkbox(visualDensity: .compact,
             activeColor: Colors.green, 
             onChanged: (_) => onCheckBox,
             value: status == KanbanStatus.done
@@ -28,7 +28,7 @@ class KanbanItem extends StatelessWidget {
           Expanded(
             child: Text(title,
               maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+              overflow: .ellipsis,
               style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600
@@ -36,10 +36,10 @@ class KanbanItem extends StatelessWidget {
             ),
           ),
 
-          IconButton(onPressed: onDelete,
-            padding: EdgeInsets.zero, 
-            iconSize: 24, 
-            icon: Icon(LucideIcons.x)
+          IconButton(icon: Icon(LucideIcons.x),
+            onPressed: onDelete,
+            iconSize: 20, 
+            padding: .zero,
           ),
         ]
       ), 
@@ -47,12 +47,12 @@ class KanbanItem extends StatelessWidget {
       //child: Container(height:50, color: Colors.red,), //footer와 title사이의 공간에 데이터표시
 
       footer: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+        mainAxisAlignment: .spaceBetween, 
         children: [
           Container(
             padding: EdgeInsets.symmetric(vertical: 5, horizontal: 6),
             decoration: BoxDecoration(
-              
+              borderRadius: .circular(4),
               color: Color(0xFFE1FBD6)
             ),
             child: Text("Low", style: TextStyle(fontSize: 12)),
@@ -64,6 +64,7 @@ class KanbanItem extends StatelessWidget {
           IconButton(
 
             onPressed: onStatus,
+            visualDensity: .compact,
             padding: EdgeInsets.zero, 
             iconSize: 25, 
             icon: Icon(status.nextIcon) 

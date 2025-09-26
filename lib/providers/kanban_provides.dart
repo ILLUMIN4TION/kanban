@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:kanban/enums/kanban_status.dart';
 
-class KanbanProvides with ChangeNotifier {
-  KanbanStatus kanbanStatus = KanbanStatus.todo;
+class KanbanProviders with ChangeNotifier {
+  KanbanStatus kanbanStatus = .todo;
   List<(KanbanStatus status, String title)> items = [];
 
   void _refreshUI() => notifyListeners();
@@ -13,13 +13,13 @@ class KanbanProvides with ChangeNotifier {
     _refreshUI();
   }
 
-  void addItem(String value, KanbanStatus kanbanStatus) {
-    items.add((kanbanStatus, value));
-    _refreshUI();
+  void addItem(KanbanStatus status, String value) {
+    items.add((status, value));
+    notifyListeners();
   }
 
-  void deleteItemIndex(int index) {
+  void deleteItemindex(int index) {
     items.removeAt(index);
-    _refreshUI();
+    notifyListeners();
   }
 }

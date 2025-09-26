@@ -54,7 +54,7 @@ class StatusIsland extends StatelessWidget {
           ),
           _buldCircleBubble(
             onTap: () {
-              context.read<KanbanProvides>().addItem('New Task',status);
+              context.read<KanbanProviders>().addItem(status, 'New task');
               debugPrint('$status 추가하기');
             },
             visible: status != KanbanStatus.done, // done 상태에서는 숨기기
@@ -69,9 +69,10 @@ class StatusIsland extends StatelessWidget {
   Widget _buldCircleBubble({required Widget child, bool visible = true, VoidCallback? onTap}) {
 
     if(!visible) {
-      return SizedBox(
-        width: AppSize.statusIslandheight,
-        height: AppSize.statusIslandheight,
+      return SizedBox.fromSize(
+        size: Size.fromWidth(
+          AppSize.statusIslandheight
+        )
       );
     }
     return InkWell(
@@ -79,12 +80,12 @@ class StatusIsland extends StatelessWidget {
       child: Container(
         width: AppSize.statusIslandheight,
         height: AppSize.statusIslandheight,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
+        alignment: .center,
+        decoration: visible ?BoxDecoration(
           color: status.bubbleColor,
           shape: BoxShape.circle,
-        ),
-        child: child,
+        ):null,
+        child: visible ? child: null,
       ),
     );
   }

@@ -8,7 +8,7 @@ class DoneProgressIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<KanbanProvides>(
+    return Consumer<KanbanProviders>(
       builder: (_, provider, child) { //builder _ 는 사용하지 않는다는 뜻, 
         final todoCount = 3;
         final doneCount = 0;
